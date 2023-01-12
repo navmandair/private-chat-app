@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Private Chat APP</title>
+    <link rel="stylesheet" href="/css/styles.min.css">
+</head>
+
+<body>
+    <h1>Private Chat App</h1>
+    <div class="chat">
+        <div class="chat__sidebar" id="sidebar">
+
+        </div>
+        <div class="chat__main">
+            <div id="messages" class="chat__messages"></div>
+            <div class="compose">
+                <form id="message-form">
+                    <input name="message" id="message" required autocomplete="off"></input>
+                    <button id="submit">Send</button>
+                </form>
+                <button id="share-location">Share Location</button>
+            </div>
+        </div>
+    </div>
+
+    <script id="message-template" type="text/html">
+        <div>
+            <p>
+                <span class="message__name">{{username}}:</span>
+                <span class="message__meta">{{createdAt}}</span>
+            </p>
+            <p>{{message}}</p>
+        </div>
+    </script>
+    <script id="location-template" type="text/html">
+        <div>
+            <p>
+                <span class="message__name">{{username}}:</span>
+                <span class="message__meta">{{createdAt}}</span>
+            </p>
+            <p>Shared Location: <a href="{{locationURL}}" target="_blank">Click Here to see</a></p>
+        </div>
+    </script>
+    <script id="sidebar-template" type="text/html">
+        <h4 class="room-title">Room: {{room}}</h4>
+        <h5 class="list-title">Users</h5>
+        <ul class="users">
+            {{#users}}
+                <li>{{username}}</li>
+            {{/users}}
+        </ul>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+
+</html>

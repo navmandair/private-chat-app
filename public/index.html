@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <title>Private Chat APP</title>
+    <link rel="stylesheet" href="/css/styles.min.css">
+</head>
 
 <body>
-    <h1>Private Chat App</h1>
-    <textarea id="chatbox"></textarea>
-    <form id="message-form">
-        <input name="message" id="message"></input>
-        <button id="submit">Send</button>
-    </form>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/chat.js"></script>
+    <div class="centered-form">
+        <div class="centered-form__box">
+            <h3>Join</h3>
+            <form action="/chat.html">
+                <input name="username" type="text" placeholder="Username" required>
+                <input name="room" type="text" placeholder="Room" required>
+                <button type="submit">Join</button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
